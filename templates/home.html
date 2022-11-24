@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{url_for('static',filename='bootstrap.min.css')}}">
+  <title>Image Recognition Server</title>
+</head>  
+  <body class style="margin:10px;padding:10px">
+    <div class="page-header" id="banner">
+      <div class="row">
+        <div class="col-lg-8 col-md-7 col-sm-6">
+          <h3>Empty vs Non-Empty Shelf Image Recognition Server</h3>
+          <p class="lead">상품 선반 이미지를 선택해 업로드 하세요.</p>
+        </div>
+      </div>
+      <form action="" method=post enctype=multipart/form-data>
+        <input type=file name=file>
+        <input type=submit value=Upload>
+    </form>
+    </div>
+    <p style="margin-bottom:2cm;"></p>
+    <div class="row">
+        <div class="col-lg-4">
+          <div class="page-header">
+            <h3 id="tables">Result</h3>
+          </div>
+          <div class="bs-component">
+            <table class="table table-hover">
+                <tr class="table-active">
+                  <th scope="col">Image</th>
+                  <th scope="col">Predict</th>
+                </tr>
+                <tr>
+                    <td>
+                      {% if True %} 
+                      <img width="224" height="224" src="{{ url_for('static', filename = 'Upload/' + image_file) }}">
+                      {% endif %} 
+                    </td>
+                    <td> <font size="5em" color="green">{{label}}</font> </td>
+                  </tr>
+            </table> 
+        </div>
+      </div>
+  </body>
